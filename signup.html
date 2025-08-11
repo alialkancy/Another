@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Login Page</title>
+    <title>Sign Up</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -39,10 +39,10 @@
         border-radius: 5px;
         font-size: 16px;
       }
-      .login-btn {
+      .signup-btn {
         width: 100%;
         padding: 10px;
-        background: #3498db;
+        background: #27ae60;
         color: #fff;
         border: none;
         border-radius: 6px;
@@ -51,39 +51,48 @@
         margin-top: 8px;
         transition: background 0.2s;
       }
-      .login-btn:hover {
-        background: #2980b9;
+      .signup-btn:hover {
+        background: #1e874b;
       }
-      .signup-link {
+      .login-link {
         text-align: center;
         margin-top: 12px;
         color: #555;
         font-size: 14px;
       }
-      .signup-link a {
+      .login-link a {
         color: #3498db;
         text-decoration: none;
       }
-      .signup-link a:hover {
+      .login-link a:hover {
         text-decoration: underline;
       }
     </style>
   </head>
   <body>
     <div class="login-container">
-      <h2>Login</h2>
+      <h2>Sign Up</h2>
       <form>
         <div class="form-group">
-          <label for="username">Username</label>
-          <input id="username" name="username" type="text" placeholder="Enter your username" required />
+          <label for="su-username">Username</label>
+          <input id="su-username" name="username" type="text" placeholder="Choose a username" required />
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
-          <input id="password" name="password" type="password" placeholder="Enter your password" required />
+          <label for="su-email">Email</label>
+          <input id="su-email" name="email" type="email" placeholder="you@example.com" required />
         </div>
-        <button class="login-btn" type="submit">Login</button>
+        <div class="form-group">
+          <label for="su-password">Password</label>
+          <input id="su-password" name="password" type="password" placeholder="Create a password" required />
+        </div>
+        <div class="form-group">
+          <label for="su-confirm">Confirm Password</label>
+          <input id="su-confirm" name="confirm" type="password" placeholder="Confirm your password" required />
+        </div>
+        <button class="signup-btn" type="submit">Create account</button>
       </form>
-      <p class="signup-link">Don't have an account? <a id="signup-link" href="signup.html">Sign up</a></p>
+      <p class="login-link">Already have an account? <a href="home.html">Log in</a></p>
     </div>
   </body>
-</html>
+  </html>
+
