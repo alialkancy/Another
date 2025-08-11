@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Login Page</title>
     <style>
       body {
@@ -72,7 +73,10 @@
   <body>
     <div class="login-container">
       <h2>Login</h2>
-      <form>
+      <form method="post">
+        <!-- TODO: set action to backend login endpoint -->
+        <!-- TODO: add server-side validation & proper error handling -->
+        <!-- TODO: include CSRF protection token/input when wiring backend -->
         <div class="form-group">
           <label for="username">Username</label>
           <input id="username" name="username" type="text" placeholder="Enter your username" required />
