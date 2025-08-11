@@ -1,5 +1,75 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>Login Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background: #f5f6fa;
+        margin: 0;
+      }
+      .login-container {
+        background: #fff;
+        padding: 32px 40px;
+        border-radius: 10px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        min-width: 300px;
+      }
+      .login-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+      .form-group {
+        margin-bottom: 16px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 6px;
+        color: #555;
+      }
+      .form-group input {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      .login-btn {
+        width: 100%;
+        padding: 10px;
+        background: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 8px;
+        transition: background 0.2s;
+      }
+      .login-btn:hover {
+        background: #2980b9;
+      }
+    </style>
+  </head>
   <body>
-    <h1>Hello world!</h1>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" placeholder="Enter your username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="Enter your password" required />
+        </div>
+        <button class="login-btn" type="submit">Login</button>
+      </form>
+    </div>
   </body>
 </html>
