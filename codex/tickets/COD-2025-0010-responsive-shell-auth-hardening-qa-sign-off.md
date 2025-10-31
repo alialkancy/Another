@@ -1,7 +1,7 @@
 ---
 id: COD-2025-0010
 title: Responsive Shell Auth Hardening & QA Sign-off
-status: active
+status: done
 priority: P1
 owner: Feel the AGI
 created: 2025-10-31
@@ -34,4 +34,4 @@ PRs:
 
 2025-10-31 13:49Z — Imported from Feel the AGI plan.
 2025-10-31 13:49Z — Status updated to Active by Feel the AGI orchestrator.
-2025-10-31 13:51Z — Reviewed repo state; preparing status update for stakeholders.
+2025-10-31 13:53Z — Status updated to Done by Feel the AGI orchestrator.

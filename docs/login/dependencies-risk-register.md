@@ -13,6 +13,9 @@ _Last updated: 2025-10-31_
 | i18n bundle refresh | Add `auth.login` namespace to translation pipeline | Leo Martin (Localization) | 2025-11-06 | On track | Vendor delivery expected 2025-11-05. |
 | Telemetry schema approval | Segment schema for login events | Dana Wright (Analytics) | 2025-11-05 | Pending review | Security signed off on hashed username field. |
 | Compliance review | Privacy & regulatory assessment | Marlon Estevez (Security) | 2025-11-08 | Not started | Needs data flow doc (captured in architecture brief). |
+| Observability flag rollout | Enable `login_shell.observability` after gating checklist | Rina Sato (Feature Ops) | 2025-11-04 | Not started | Blocked on Segment schema promotion & incident webhook. |
+| IAM scope `Support-Observers` | Provision Grafana/Looker read-only access for support | Priya Natarajan (IAM) | 2025-11-07 | Pending | Requires SCIM group sync and support roster approval. |
+| PagerDuty linkage | Connect LaunchDarkly + Grafana alerts to incident tooling | Quinn Harper (SRE) | 2025-11-08 | Pending | Needs webhook secret rotation before enabling. |
 | CAPTCHA service integration | Toggleable captcha for high-risk flows | Evelyn Soto (Security Engineering) | 2025-11-09 | Blocked | Vendor SLA change pending legal review. |
 | IdP metadata rotation | Refresh OIDC/SAML metadata with new MTLS certs | Lin Chen (Identity Platform) | 2025-11-04 | On track | Certs issued 2025-10-28; waiting on staging deploy. |
 | Session Redis cluster | Provision Redis 7.2 w/ TLS for session caching | Quinn Harper (SRE) | 2025-11-03 | In progress | Terraform plan ready; awaiting change window approval. |
@@ -30,6 +33,9 @@ _Last updated: 2025-10-31_
 | R6 | Rollback fails because legacy HTML diverges | High | Low | Feel the AGI team | Nightly job to sync `home.html` snapshot to `/static/login-legacy.html`, manual verification checklist | Legacy snapshot older than 7 days |
 | R7 | Redis cluster deployment delayed impacting session TTL guarantees | High | Medium | Quinn Harper | Schedule change window with SRE, prepare fallback to SQL session store, add smoke test post-launch | Change approval slips past 2025-11-04 |
 | R8 | IdP metadata rotation misses MTLS certificate cutover | High | Low | Lin Chen | Stage rotation by 2025-11-03, validate handshake in staging, fallback to legacy certificate for 24 hrs | MTLS cert expires 2025-11-05 without update |
+| R9 | Observability IAM provisioning slips, blocking support access | Medium | Medium | Jordan Lee | Expedite IAM ticket, prep temporary support screen-share workflow, confirm read-only dashboards before 2025-11-09 | IAM ticket not resolved by 2025-11-07 |
+| R10 | PagerDuty/Grafana webhook drift causes duplicate or missing alerts | Medium | Medium | Quinn Harper | Rotate secrets, run integration test on 2025-11-08, document fallback escalation manual ping | Webhook test fails or alerts not received in staging |
+| R11 | Segment schema promotion rejected due to field mismatch | Medium | Low | Dana Wright | Validate payloads in staging using schema diff script, provide anonymized samples to governance | Data platform flags schema mismatch on 2025-11-05 review |
 
 ## 3. Compliance & Privacy Items
 
@@ -43,3 +49,16 @@ _Last updated: 2025-10-31_
 1. Do we require explicit customer notification for the UI overhaul in regulated markets? (Owner: Support PM, Due: 2025-11-07)
 2. Should the login shell expose recovery code entry for MFA on day one or defer to follow-up ticket? (Owner: Product/Security, Due: 2025-11-05)
 3. Are there legacy clients relying on query params only present in `home.html` that must be preserved? (Owner: Auth Platform, Discovery by 2025-11-03)
+4. How will support handle partial rollouts when new telemetry signals differ by tenant? (Owner: Jordan Lee, Due: 2025-11-06)
+5. Can security approve temporary elevated access for OTEL collector troubleshooting during launch week? (Owner: Marlon Estevez, Due: 2025-11-05)
+6. Does the data platform require additional masking for `flag_state` in downstream BI exports? (Owner: Dana Wright, Due: 2025-11-05)
+
+## 5. Cross-Team Handoffs
+
+| Handoff | Description | From → To | Owner | Target Resolution | Notes |
+| --- | --- | --- | --- | --- | --- |
+| H1 | LaunchDarkly incident webhook enablement | Feature Ops → SRE | Rina Sato | 2025-11-03 | Must complete before alert dry run. |
+| H2 | Observability IAM group provisioning | IAM → Support | Priya Natarajan | 2025-11-07 | Support training blocked until access granted. |
+| H3 | Segment schema approval & documentation | Data Platform → Security | Dana Wright | 2025-11-05 | Inputs required for compliance review sign-off. |
+| H4 | PagerDuty integration test report | SRE → Support/Security | Quinn Harper | 2025-11-08 | Evidence needed before launch readiness checkpoint. |
+| H5 | Synthetic monitor credential escrow | SRE → Program Mgmt | Quinn Harper | 2025-11-09 | Vault secret to be distributed to war room leads. |

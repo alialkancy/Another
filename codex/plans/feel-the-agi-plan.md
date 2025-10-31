@@ -1,6 +1,6 @@
 # Feel the AGI Plan
 
-_Last updated: 2025-10-31 13:49Z_
+_Last updated: 2025-10-31 13:55Z_
 
 Refer to `/codex/STATE.md` for the authoritative ticket dashboard.
 
@@ -194,9 +194,12 @@ Create a **new ticket** under `/codex/tickets/` if you encounter:
 | --- | --- | --- | --- |
 | [COD-2025-0001](../tickets/COD-2025-0001-baseline-login-requirements-architecture-and-guardrails.md) | Baseline Login Requirements, Architecture, and Guardrails | Done | P1 |
 | [COD-2025-0006](../tickets/COD-2025-0006-finalize-auth-integration-contract-and-observability-spec.md) | Finalize Auth Integration Contract and Observability Spec | Done | P1 |
-| [COD-2025-0010](../tickets/COD-2025-0010-responsive-shell-auth-hardening-qa-sign-off.md) | Responsive Shell Auth Hardening & QA Sign-off | Active | P1 |
-| [COD-2025-0011](../tickets/COD-2025-0011-enterprise-docs-runbooks-and-support-enablement.md) | Enterprise Docs, Runbooks, and Support Enablement | Backlog | P1 |
-| [COD-2025-0012](../tickets/COD-2025-0012-launch-readiness-progressive-rollout-and-post-launch-monitor.md) | Launch Readiness, Progressive Rollout, and Post-Launch Monitoring | Backlog | P1 |
+| [COD-2025-0010](../tickets/COD-2025-0010-responsive-shell-auth-hardening-qa-sign-off.md) | Responsive Shell Auth Hardening & QA Sign-off | Done | P1 |
+| [COD-2025-0013](../tickets/COD-2025-0013-operationalize-observability-blueprint-dependency-closure.md) | Operationalize Observability Blueprint & Dependency Closure | Done | P1 |
+| [COD-2025-0014](../tickets/COD-2025-0014-implement-auth-telemetry-pipeline-alert-policies.md) | Implement Auth Telemetry Pipeline & Alert Policies | Backlog | P1 |
+| [COD-2025-0015](../tickets/COD-2025-0015-enterprise-runbooks-support-enablement-and-training.md) | Enterprise Runbooks, Support Enablement, and Training | Backlog | P1 |
+| [COD-2025-0016](../tickets/COD-2025-0016-enterprise-regression-chaos-and-dr-validation.md) | Enterprise Regression, Chaos, and DR Validation | Backlog | P1 |
+| [COD-2025-0017](../tickets/COD-2025-0017-launch-readiness-review-production-enablement.md) | Launch Readiness Review & Production Enablement | Backlog | P1 |
 | [COD-2025-0002](../tickets/COD-2025-0002-implement-feature-flagged-responsive-login-shell.md) | Implement Feature-Flagged Responsive Login Shell | Backlog | P1 |
 | [COD-2025-0003](../tickets/COD-2025-0003-integrate-authentication-logic-and-observability.md) | Integrate Authentication Logic and Observability | Backlog | P1 |
 | [COD-2025-0004](../tickets/COD-2025-0004-automated-test-accessibility-and-telemetry-verification.md) | Automated Test, Accessibility, and Telemetry Verification | Backlog | P1 |
@@ -204,15 +207,70 @@ Create a **new ticket** under `/codex/tickets/` if you encounter:
 | [COD-2025-0007](../tickets/COD-2025-0007-wire-responsive-shell-to-auth-services-behind-feature-flag.md) | Wire Responsive Shell to Auth Services Behind Feature Flag | Backlog | P1 |
 | [COD-2025-0008](../tickets/COD-2025-0008-quality-verification-accessibility-and-operational-hardening.md) | Quality Verification, Accessibility, and Operational Hardening | Backlog | P1 |
 | [COD-2025-0009](../tickets/COD-2025-0009-launch-readiness-runbooks-and-progressive-rollout-plan.md) | Launch Readiness, Runbooks, and Progressive Rollout Plan | Backlog | P1 |
+| [COD-2025-0011](../tickets/COD-2025-0011-enterprise-docs-runbooks-and-support-enablement.md) | Enterprise Docs, Runbooks, and Support Enablement | Backlog | P1 |
+| [COD-2025-0012](../tickets/COD-2025-0012-launch-readiness-progressive-rollout-and-post-launch-monitor.md) | Launch Readiness, Progressive Rollout, and Post-Launch Monitoring | Backlog | P1 |
 
 ## Status Totals
 
-- Active: 1
-- Backlog: 9
-- Done: 2
+- Active: 0
+- Backlog: 13
+- Done: 4
 
 ## Source Plan
 
 ```json
-{"tickets":[{"title":"Responsive Shell Auth Hardening & QA Sign-off","description":"Exercise the responsive shell end-to-end with the feature flag enabled in staging and internal dogfood, validating auth flows, responsive breakpoints, accessibility, and telemetry before exposing external traffic. Partner with Identity, Design, and QA to capture regressions, confirm observability coverage, and ensure any gaps have owners or fixes merged.","acceptance_criteria":["Test matrix covering primary and edge auth flows across desktop/mobile viewports, major browsers, and failure scenarios is reviewed and signed off by QA with run results attached","Session refresh, MFA, sign-out, and error recovery paths pass in staging and internal dogfood with the responsive shell flag on, with captured evidence of expected telemetry events/traces","Automated and manual accessibility checks (including keyboard navigation and screen reader smoke tests) show no new blockers; any issues have fixes merged or tracked with owners and target dates","Observability dashboards and alerts for responsive shell auth traffic are validated against the approved spec using live or replayed traces, with gaps triaged and resolved","Final hardening changes are merged with Identity and Frontend approvals, all regression gates are green, and outstanding findings are documented with explicit owners and follow-up tickets"]},{"title":"Enterprise Docs, Runbooks, and Support Enablement","description":"Translate the validated responsive shell behavior into public documentation, internal runbooks, and support assets that reflect the new auth experience and feature flag controls. Coordinate with Docs, Support, and SRE to ensure troubleshooting guidance, escalation paths, and instrumentation references are current.","acceptance_criteria":["Customer-facing knowledge base article and admin guide updates are merged with Docs and Support approvals, referencing responsive shell behavior and flag controls","SRE runbooks and on-call decision trees cover responsive shell-specific auth anomalies, required telemetry dashboards, and rollback procedures, with SRE sign-off","Support macros or troubleshooting playbooks are refreshed, reviewed by Tier 1/2 leads, and an enablement session (live or recorded) is delivered with attendance captured and notes shared","All documentation, runbooks, and enablement materials are linked in the release ticket with final copy edits complete and stakeholders acknowledging receipt"]},{"title":"Launch Readiness, Progressive Rollout, and Post-Launch Monitoring","description":"Drive the final go/no-go for the responsive shell by ensuring quality gates, flag configuration, rollout sequencing, and operational readiness are in place. Align with Product, Identity, Security, Release Engineering, and SRE on rollout execution, rollback triggers, and post-launch monitoring.","acceptance_criteria":["Release candidate commit has passing unit, integration, end-to-end, accessibility, and lint suites with evidence captured in the release ticket","Feature flag configuration for progressive rollout (cohorts, ramp percentages, timeline) and rollback plan (circuit breakers, clear owners) are documented and merged","Launch checklist is completed with explicit go/no-go approvals from Product, Identity, Security, SRE, Support, and Design (if required)","Post-launch monitoring dashboard and alert thresholds are validated in production-like traffic, with on-call ownership acknowledged for the launch window","Post-launch review cadence, success metrics, and communication plan (status updates, incident escalation channel) are scheduled and shared with stakeholders"]}]}
+{
+  "tickets": [
+    {
+      "title": "Operationalize Observability Blueprint & Dependency Closure",
+      "description": "Convert the approved observability blueprint into an executable plan that locks sequencing with partner teams. Align data flows, access controls, and rollout timelines with SRE, security, data platform, and support so downstream implementation can land without blocking the enterprise launch window.",
+      "acceptance_criteria": [
+        "Observability implementation plan reviewed with platform SRE, security, data platform, and support leads covering data sources, emission formats, retention, and escalation paths",
+        "Dependency matrix published outlining feature flags, IAM scopes, service accounts, and incident tooling integrations with named owners and landing dates",
+        "Risks, open questions, and cross-team handoffs captured in the program tracker with owners and target resolution dates",
+        "Sequencing plan documented showing how telemetry delivery, docs/runbooks, validation, and launch checkpoints align to the release calendar"
+      ]
+    },
+    {
+      "title": "Implement Auth Telemetry Pipeline & Alert Policies",
+      "description": "Ship the instrumentation and configuration defined in the observability plan. Wire login services into centralized metrics, logs, and tracing stacks, enforce privacy guardrails, and stand up staging dashboards and alerts that underpin support runbooks and launch gating.",
+      "acceptance_criteria": [
+        "Telemetry code merged behind feature flags with unit/contract tests covering event emission, schema validation, and PII redaction",
+        "Privacy, security, and data platform reviews sign off on schemas, retention windows, and data minimization controls prior to enabling the flags",
+        "Dashboards and alert policies deployed in staging with documented thresholds, linked runbooks, and ownership recorded",
+        "Synthetic login and failure smoke tests exercise metrics/logs/traces end-to-end in CI and staging with results archived and acknowledged by SRE/support"
+      ]
+    },
+    {
+      "title": "Enterprise Runbooks, Support Enablement, and Training",
+      "description": "Finalize operational documentation and prepare support teams for the telemetry-backed enterprise login launch. Ensure runbooks reflect instrumentation, dashboards, alert paths, and rollback procedures, and confirm the support org is trained on the workflows.",
+      "acceptance_criteria": [
+        "Runbooks, SOPs, and knowledge base articles updated in-repo to cover telemetry signals, alert responses, rollback steps, and customer comms templates",
+        "Support enablement sessions delivered with attendance captured, Q&A documented, and follow-up actions closed",
+        "Staging dry run of an alert escalation executed using new dashboards with lessons incorporated into docs before sign-off",
+        "Support and SRE leadership record approval of the operational playbooks in the project tracker"
+      ]
+    },
+    {
+      "title": "Enterprise Regression, Chaos, and DR Validation",
+      "description": "Execute the full validation suite across enterprise identity providers, MFA paths, and failure scenarios. Layer in chaos experiments and disaster recovery drills to confirm resilience, ensuring findings feed back into remediation before launch gates.",
+      "acceptance_criteria": [
+        "Automated and manual regression results published covering all enterprise login permutations, with critical defects resolved or formally waived with VP approval",
+        "Chaos experiments and DR drills documented with recovery metrics and evidence that runbooks remain accurate post-testing",
+        "Security regression suite updated to include telemetry-related surfaces with results linked in the tracker and gaps triaged",
+        "All remediation actions tracked with owners and due dates, with no high-severity issues left unassigned at exit"
+      ]
+    },
+    {
+      "title": "Launch Readiness Review & Production Enablement",
+      "description": "Run the final cross-functional launch review to verify implementation, validation, and operational readiness. Confirm rollout strategy, post-launch monitoring, and communication cadences before recording the go/no-go decision with release management.",
+      "acceptance_criteria": [
+        "Launch readiness checklist completed with sign-offs from product, engineering, SRE, security, and support",
+        "Progressive rollout plan, feature flag strategy, rollback playbook, and customer comms schedule documented and approved",
+        "All high-severity defects closed or waived with explicit mitigation owners and timelines recorded",
+        "Post-launch monitoring dashboards, alert routing, on-call rotations, and comms plan validated; go/no-go decision logged in the project tracker"
+      ]
+    }
+  ]
+}
 ```
