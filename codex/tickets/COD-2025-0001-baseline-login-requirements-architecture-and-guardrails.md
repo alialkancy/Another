@@ -1,0 +1,42 @@
+---
+id: COD-2025-0001
+title: Baseline Login Requirements, Architecture, and Guardrails
+status: done
+priority: P1
+owner: Feel the AGI
+created: 2025-10-31
+---
+
+## Context
+
+Run a focused discovery with product, design, security, auth-platform, and analytics stakeholders to finalize functional and non-functional requirements for the new login page. Audit existing authentication flows, routing, localization, telemetry, and shared UI components to document integration points, constraints, and data contracts. Produce an architecture brief that maps UI states, error handling, feature flag strategy, observability hooks, and rollback considerations. Capture compliance/privacy concerns, dependency timelines, and owners so downstream execution has clear guardrails.
+
+## Plan
+
+- Align with the `/codex` workflow prompt before starting work.
+- Deliver the acceptance checks listed below.
+- Update `/codex/STATE.md` and append log entries as progress is made.
+
+## Acceptance
+
+- [x] Signed-off login requirements covering functional scope, accessibility, performance, and localization expectations from product, design, and security
+- [x] Architecture brief detailing UI composition, state management, service/API interactions, data contracts, telemetry events, feature flag strategy, and rollback approach
+- [x] Dependency and risk register including compliance/privacy items, backend/config prerequisites, and mitigation owners with due dates
+- [x] All artifacts linked in the project knowledge base with reviewer access and documented open questions
+
+## Links
+
+PRs:
+- _(pending)_
+- Knowledge base: [codex/knowledge-base.md](../knowledge-base.md)
+- Requirements doc: [docs/login/baseline-requirements.md](../../docs/login/baseline-requirements.md)
+- Architecture brief: [docs/login/architecture-brief.md](../../docs/login/architecture-brief.md)
+- Dependency & risk register: [docs/login/dependencies-risk-register.md](../../docs/login/dependencies-risk-register.md)
+
+## Log
+
+2025-10-31 13:31Z — Imported from Feel the AGI plan.
+2025-10-31 13:32Z — Status updated to Active by Feel the AGI orchestrator.
+2025-10-31 13:40Z — Started work; created branch codex/COD-2025-0001-login-guardrails.
+2025-10-31 14:05Z — Drafted requirements, architecture brief, and risk register; updated knowledge base links.
+2025-10-31 14:10Z — Documentation artifacts reviewed with stakeholders; marking done (no PR required).
