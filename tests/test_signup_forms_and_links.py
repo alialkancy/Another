@@ -16,11 +16,11 @@ def test_signup_has_login_link_with_id():
     assert os.path.exists(path)
     content = read(path)
     assert 'id="login-link"' in content, 'Expected a Log in link with id="login-link"'
-    assert 'href="home.html"' in content, 'Log in link should navigate to home.html'
+    assert 'href="login.html"' in content, 'Log in link should navigate to login.html'
 
 
 def test_both_forms_use_post_method():
-    login = read(abspath_from_tests('home.html'))
+    login = read(abspath_from_tests('login.html'))
     signup = read(abspath_from_tests('signup.html'))
     assert re.search(r"<form[^>]*method=\"post\"", login, re.IGNORECASE), 'home.html form should use method="post"'
     assert re.search(r"<form[^>]*method=\"post\"", signup, re.IGNORECASE), 'signup.html form should use method="post"'
@@ -41,4 +41,3 @@ def test_signup_required_attributes_present():
     for _id in ['su-username', 'su-email', 'su-password', 'su-confirm']:
         pattern = rf"<input[^>]*id=\"{_id}\"[^>]*required"
         assert re.search(pattern, content, re.IGNORECASE), f'Expected required attribute on input #{_id}'
-
