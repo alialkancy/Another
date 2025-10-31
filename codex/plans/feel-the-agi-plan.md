@@ -1,6 +1,6 @@
 # Feel the AGI Plan
 
-_Last updated: 2025-10-31 13:40Z_
+_Last updated: 2025-10-31 13:49Z_
 
 Refer to `/codex/STATE.md` for the authoritative ticket dashboard.
 
@@ -193,67 +193,26 @@ Create a **new ticket** under `/codex/tickets/` if you encounter:
 | ID | Title | Status | Priority |
 | --- | --- | --- | --- |
 | [COD-2025-0001](../tickets/COD-2025-0001-baseline-login-requirements-architecture-and-guardrails.md) | Baseline Login Requirements, Architecture, and Guardrails | Done | P1 |
-| [COD-2025-0006](../tickets/COD-2025-0006-finalize-auth-integration-contract-and-observability-spec.md) | Finalize Auth Integration Contract and Observability Spec | Active | P1 |
-| [COD-2025-0007](../tickets/COD-2025-0007-wire-responsive-shell-to-auth-services-behind-feature-flag.md) | Wire Responsive Shell to Auth Services Behind Feature Flag | Backlog | P1 |
-| [COD-2025-0008](../tickets/COD-2025-0008-quality-verification-accessibility-and-operational-hardening.md) | Quality Verification, Accessibility, and Operational Hardening | Backlog | P1 |
-| [COD-2025-0009](../tickets/COD-2025-0009-launch-readiness-runbooks-and-progressive-rollout-plan.md) | Launch Readiness, Runbooks, and Progressive Rollout Plan | Backlog | P1 |
+| [COD-2025-0006](../tickets/COD-2025-0006-finalize-auth-integration-contract-and-observability-spec.md) | Finalize Auth Integration Contract and Observability Spec | Done | P1 |
+| [COD-2025-0010](../tickets/COD-2025-0010-responsive-shell-auth-hardening-qa-sign-off.md) | Responsive Shell Auth Hardening & QA Sign-off | Active | P1 |
+| [COD-2025-0011](../tickets/COD-2025-0011-enterprise-docs-runbooks-and-support-enablement.md) | Enterprise Docs, Runbooks, and Support Enablement | Backlog | P1 |
+| [COD-2025-0012](../tickets/COD-2025-0012-launch-readiness-progressive-rollout-and-post-launch-monitor.md) | Launch Readiness, Progressive Rollout, and Post-Launch Monitoring | Backlog | P1 |
 | [COD-2025-0002](../tickets/COD-2025-0002-implement-feature-flagged-responsive-login-shell.md) | Implement Feature-Flagged Responsive Login Shell | Backlog | P1 |
 | [COD-2025-0003](../tickets/COD-2025-0003-integrate-authentication-logic-and-observability.md) | Integrate Authentication Logic and Observability | Backlog | P1 |
 | [COD-2025-0004](../tickets/COD-2025-0004-automated-test-accessibility-and-telemetry-verification.md) | Automated Test, Accessibility, and Telemetry Verification | Backlog | P1 |
 | [COD-2025-0005](../tickets/COD-2025-0005-finalize-documentation-and-launch-readiness.md) | Finalize Documentation and Launch Readiness | Backlog | P1 |
+| [COD-2025-0007](../tickets/COD-2025-0007-wire-responsive-shell-to-auth-services-behind-feature-flag.md) | Wire Responsive Shell to Auth Services Behind Feature Flag | Backlog | P1 |
+| [COD-2025-0008](../tickets/COD-2025-0008-quality-verification-accessibility-and-operational-hardening.md) | Quality Verification, Accessibility, and Operational Hardening | Backlog | P1 |
+| [COD-2025-0009](../tickets/COD-2025-0009-launch-readiness-runbooks-and-progressive-rollout-plan.md) | Launch Readiness, Runbooks, and Progressive Rollout Plan | Backlog | P1 |
 
 ## Status Totals
 
 - Active: 1
-- Backlog: 7
-- Done: 1
+- Backlog: 9
+- Done: 2
 
 ## Source Plan
 
 ```json
-{
-  "tickets": [
-    {
-      "title": "Finalize Auth Integration Contract and Observability Spec",
-      "description": "Produce the detailed integration source of truth linking the responsive shell, backend auth services, and identity provider. Capture sequence diagrams, API contracts, feature-flag behavior, and resiliency expectations so implementation can proceed without ambiguity. Extend the document with data-handling notes (PII redaction, retention windows) and confirm infrastructure prerequisites or migrations. Pair this with a full observability spec enumerating metrics, traces, logs, dashboards, alert thresholds, and ownership, aligning with security, platform, and data teams before coding continues.",
-      "acceptance_criteria": [
-        "Versioned integration spec includes auth sequence diagrams, API contracts, retry/backoff semantics, session lifetime, rate limiting, fallback paths, and data-handling requirements; approved by security, platform, and identity provider reviewers",
-        "Observability spec lists metrics, logs, traces, dashboards, alert thresholds, sampling, and data retention with named owners; sign-off recorded with data platform and observability leads",
-        "Cross-team dependencies (identity provider updates, infrastructure tasks, feature-flag config) captured on the project board with owners, target dates, and tracked risks",
-        "Implementation readiness review held with FE, BE, security, and observability leads; approval recorded in the ticket"
-      ]
-    },
-    {
-      "title": "Wire Responsive Shell to Auth Services Behind Feature Flag",
-      "description": "Implement the end-to-end auth handshake using the signed-off contract, ensuring the responsive shell negotiates tokens securely with backend services and gracefully falls back when the flag is disabled. Add resilient error handling, rate-limit awareness, and retries, and validate session persistence against compliance guidance. Instrument telemetry exactly as specified and coordinate with DevOps to propagate feature-flag configurations across environments, performing staging rollouts that vet both success and failure paths with QA and security partners.",
-      "acceptance_criteria": [
-        "Feature flag toggles the new auth path on/off without regression; staging end-to-end tests validate login success, failure messaging, and legacy fallback behavior with proper session/token handling",
-        "Automated unit and integration tests cover success, retry, timeout, and error scenarios, including telemetry emission and token lifecycle edge cases; results linked in the ticket",
-        "Telemetry events (login success/failure, flag transitions, retry counts) flow into agreed staging dashboards with schemas validated for redaction and field completeness",
-        "Feature-flag configurations deployed across dev/staging environments with DevOps; pair review with backend owner completed and security/QA sign-offs recorded"
-      ]
-    },
-    {
-      "title": "Quality Verification, Accessibility, and Operational Hardening",
-      "description": "Bring the implementation to launch-quality by expanding automated coverage, executing manual QA, and hardening accessibility and operational posture. Close the loop on responsiveness across devices, validate telemetry health checks, and resolve identified defects. Ensure WCAG compliance, refresh security/privacy scans, and exercise observability alerts so on-call teams can respond confidently.",
-      "acceptance_criteria": [
-        "CI passes full suite of unit, integration, and E2E tests with new cases covering responsive interactions, auth edge cases, and telemetry hooks; coverage deltas documented",
-        "Manual QA matrix across supported browsers/devices and feature-flag states executed with findings triaged and resolved",
-        "Accessibility audit against WCAG 2.1 AA completed, remediations verified, and accessibility reviewer approval captured",
-        "Security/privacy checks (static analysis, dependency scan, token storage review) updated for the new auth path; issues resolved or exceptions approved",
-        "Observability dry run performed by triggering synthetic success/failure signals to validate alert thresholds, routing, and on-call readiness"
-      ]
-    },
-    {
-      "title": "Launch Readiness, Runbooks, and Progressive Rollout Plan",
-      "description": "Consolidate all artifacts and operational agreements required for launch. Finalize runbooks, rollback and comms plans, and confirm production monitoring stands ready. Define the staged rollout strategy, success metrics, and abort criteria, securing approvals from product, release, and support stakeholders so the team can execute the launch confidently.",
-      "acceptance_criteria": [
-        "Launch go/no-go checklist completed with runbook, rollback strategy, customer-facing release notes, and support FAQs approved by product and release management",
-        "Production dashboards and alerts deployed with owners, escalation paths, and data-retention confirmations documented",
-        "Progressive rollout plan defines flag ramp schedule, success and abort metrics, and communication cadence; sign-off from release management and support captured",
-        "Final readiness approvals recorded from QA lead, accessibility lead, security representative, and release manager"
-      ]
-    }
-  ]
-}
+{"tickets":[{"title":"Responsive Shell Auth Hardening & QA Sign-off","description":"Exercise the responsive shell end-to-end with the feature flag enabled in staging and internal dogfood, validating auth flows, responsive breakpoints, accessibility, and telemetry before exposing external traffic. Partner with Identity, Design, and QA to capture regressions, confirm observability coverage, and ensure any gaps have owners or fixes merged.","acceptance_criteria":["Test matrix covering primary and edge auth flows across desktop/mobile viewports, major browsers, and failure scenarios is reviewed and signed off by QA with run results attached","Session refresh, MFA, sign-out, and error recovery paths pass in staging and internal dogfood with the responsive shell flag on, with captured evidence of expected telemetry events/traces","Automated and manual accessibility checks (including keyboard navigation and screen reader smoke tests) show no new blockers; any issues have fixes merged or tracked with owners and target dates","Observability dashboards and alerts for responsive shell auth traffic are validated against the approved spec using live or replayed traces, with gaps triaged and resolved","Final hardening changes are merged with Identity and Frontend approvals, all regression gates are green, and outstanding findings are documented with explicit owners and follow-up tickets"]},{"title":"Enterprise Docs, Runbooks, and Support Enablement","description":"Translate the validated responsive shell behavior into public documentation, internal runbooks, and support assets that reflect the new auth experience and feature flag controls. Coordinate with Docs, Support, and SRE to ensure troubleshooting guidance, escalation paths, and instrumentation references are current.","acceptance_criteria":["Customer-facing knowledge base article and admin guide updates are merged with Docs and Support approvals, referencing responsive shell behavior and flag controls","SRE runbooks and on-call decision trees cover responsive shell-specific auth anomalies, required telemetry dashboards, and rollback procedures, with SRE sign-off","Support macros or troubleshooting playbooks are refreshed, reviewed by Tier 1/2 leads, and an enablement session (live or recorded) is delivered with attendance captured and notes shared","All documentation, runbooks, and enablement materials are linked in the release ticket with final copy edits complete and stakeholders acknowledging receipt"]},{"title":"Launch Readiness, Progressive Rollout, and Post-Launch Monitoring","description":"Drive the final go/no-go for the responsive shell by ensuring quality gates, flag configuration, rollout sequencing, and operational readiness are in place. Align with Product, Identity, Security, Release Engineering, and SRE on rollout execution, rollback triggers, and post-launch monitoring.","acceptance_criteria":["Release candidate commit has passing unit, integration, end-to-end, accessibility, and lint suites with evidence captured in the release ticket","Feature flag configuration for progressive rollout (cohorts, ramp percentages, timeline) and rollback plan (circuit breakers, clear owners) are documented and merged","Launch checklist is completed with explicit go/no-go approvals from Product, Identity, Security, SRE, Support, and Design (if required)","Post-launch monitoring dashboard and alert thresholds are validated in production-like traffic, with on-call ownership acknowledged for the launch window","Post-launch review cadence, success metrics, and communication plan (status updates, incident escalation channel) are scheduled and shared with stakeholders"]}]}
 ```

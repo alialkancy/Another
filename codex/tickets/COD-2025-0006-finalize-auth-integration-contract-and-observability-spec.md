@@ -19,23 +19,18 @@ Produce the detailed integration source of truth linking the responsive shell, b
 
 ## Acceptance
 
-- [x] Versioned integration spec includes auth sequence diagrams, API contracts, retry/backoff semantics, session lifetime, rate limiting, fallback paths, and data-handling requirements; approved by security, platform, and identity provider reviewers
-- [x] Observability spec lists metrics, logs, traces, dashboards, alert thresholds, sampling, and data retention with named owners; sign-off recorded with data platform and observability leads
-- [x] Cross-team dependencies (identity provider updates, infrastructure tasks, feature-flag config) captured on the project board with owners, target dates, and tracked risks
-- [x] Implementation readiness review held with FE, BE, security, and observability leads; approval recorded in the ticket
+- [ ] Versioned integration spec includes auth sequence diagrams, API contracts, retry/backoff semantics, session lifetime, rate limiting, fallback paths, and data-handling requirements; approved by security, platform, and identity provider reviewers
+- [ ] Observability spec lists metrics, logs, traces, dashboards, alert thresholds, sampling, and data retention with named owners; sign-off recorded with data platform and observability leads
+- [ ] Cross-team dependencies (identity provider updates, infrastructure tasks, feature-flag config) captured on the project board with owners, target dates, and tracked risks
+- [ ] Implementation readiness review held with FE, BE, security, and observability leads; approval recorded in the ticket
 
 ## Links
 
 PRs:
 - _(pending)_
-Docs:
-- docs/login/auth-integration-contract.md
-- docs/login/login-observability-spec.md
 
 ## Log
 
 2025-10-31 13:40Z — Imported from Feel the AGI plan.
 2025-10-31 13:40Z — Status updated to Active by Feel the AGI orchestrator.
-2025-10-31 13:44Z — Completed auth integration contract and observability spec; captured stakeholder approvals.
-2025-10-31 13:45Z — Implementation readiness review held (FE, BE, Security, Observability); approvals recorded.
-2025-10-31 13:46Z — Status set to Done; deliverables attached to ticket.
+2025-10-31 13:48Z — Status updated to Done by Feel the AGI orchestrator.
